@@ -1,0 +1,12 @@
+
+<div class="answer_page">
+  <%= form_for(@wear) do |f| %>
+    <h3>服を登録する</h3>
+    <br>
+    <div class="form-group">
+      <%= f.label "値段(円)/1ヶ月" %>
+      <%= f.number_field :price, :class => "form-control"%>
+    </div>
+      <%= f.submit "回答する", :class => "form-control" %>
+  <% end %>
+</div>

@@ -1,0 +1,64 @@
+// Place all the styles related to the top controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+// mainPage
+.mainPage{
+  min-height:500px;
+  padding-top:75px;
+}
+
+// sign_in/up
+.sign_in_up_page {
+  width: 300px;
+  margin:auto;
+  border: 1px solid;
+  padding:10px
+}
+
+//confirmation password email page
+.answer_page{
+  width:500px;
+  margin:auto;
+  padding:10px
+}
+
+// header
+header{
+  border-bottom:1px solid ;
+  margin:10px;
+  position:fixed;
+  height: 50px;
+  ul{
+    margin:10px;
+  }
+}
+
+// footer
+footer{
+  border-top: 1px solid;
+  margin:10px;
+  ul{
+    margin:10px;
+  }
+}
+
+
+// 埋め込み signin
+.embed_sign_in{
+  width: 200px;
+  min-height: 200px;
+  margin:20px;
+  float: left;
+  border: 1px solid;
+  padding:10px
+}
+
+// clearfix
+.clearfix{
+  display: block;
+  clear: both;
+}
+
+
+

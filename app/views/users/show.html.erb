@@ -1,0 +1,13 @@
+<div class="container">
+  <% if @user.id == current_user.id %>
+    <h3>Email</h3>
+    <p><%= @user.email %></p>
+    <br>
+    <h3>Name</h3>
+    <p>user_name</p>
+    <%= link_to "ユーザー情報を編集",edit_user_path(current_user.id), :class => "btn btn-primary withripple" %>
+  <% else %>
+    <h3>Name</h3>
+    <p>user_name</p>
+  <% end %>
+</div>

@@ -1,0 +1,34 @@
+<div class="form">
+<% if user_signed_in? %>
+  <!-- プロフィールを書く -->
+  <div class="embed_sign_in">
+    <h4><strong>ようこそ！<%= current_user.first_name %>さん</strong></h4><br>
+    <%= link_to "ユーザー情報の編集",edit_user_path(current_user.id) %><br><br>
+    <%= link_to "パスワード、メールアドレスの変更",edit_user_registration_path, :class => "navbar-link"  %>
+  </div>
+<% else %>
+  <div class="embed_sign_in">
+    <h2>ログイン</h2>
+    <%= form_for(:user, :url => session_path(:user)) do |f| %>
+      <div class="form-group">
+        <%= f.label "メールアドレス" %><br />
+        <%= f.email_field :email, autofocus: true, :class => "form-control" %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label "パスワード" %><br />
+        <%= f.password_field :password, autocomplete: "off", :class => "form-control" %>
+      </div>
+
+      <div class="form-group">
+        <%= f.check_box :remember_me %>
+        <%= f.label :remember_me %>
+      </div>
+
+      <div class="actions">
+        <%= f.submit "ログイン", :class => "btn btn-primary withripple" %>
+      </div>
+    <% end %>
+  </div>
+<% end %>
+</div>
