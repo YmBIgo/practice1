@@ -5,4 +5,9 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable, :confirmable
 
   has_many    :wears
+
+  def full_profile?
+    family_name? && first_name?
+  end
+
 end

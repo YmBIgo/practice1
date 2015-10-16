@@ -1,1 +1,13 @@
-<p>Hello World</p>
+<% for num in 1..4 do %>
+  <ul class="list-inline" >
+    <% @wear_all.page(num).per(5).each do |w| %>
+      <li class="wear_col">
+        <a href="/wears/<%= w.id %>">
+          <div class="postring_image icon_image" style="background-image:url(<%= w.avatar.url(:medium) %>)"></div>
+        </a>
+        <p><%= w.price %>円/月</p>
+      </li>
+    <% end %>
+  </ul>
+<% end %>
+<%= paginate(@wears) %>

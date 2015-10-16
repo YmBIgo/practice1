@@ -3,6 +3,8 @@ class UsersController < ApplicationController
   before_action :correct_user, only: [:edit, :update]
   def show
     @user = User.find(params[:id])
+    @wear_all = @user.wears.all
+    @wears = @wear_all.page(params[:page]).per(20)
   end
 
   def edit

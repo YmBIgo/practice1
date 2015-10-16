@@ -2,10 +2,49 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+body{
+  min-width:1100px;
+}
 // mainPage
 .mainPage{
-  min-height:500px;
   padding-top:75px;
+  min-height:500px;
+  // mainpage content
+  .in_main_page{
+    min-width:700px;
+    clear:right;
+    float:left;
+    // 画像
+    .wear_col{
+      width:120px;
+      height:150px;
+      list-style-type:none;
+      border:1px solid;
+      padding:10px;
+      margin:10px 10px 0 0 ;
+      .icon_image {
+        width: 100px;
+        height: 100px;
+        background-size: cover;
+        display: table-cell;
+      }
+      p {
+        text-align:center;
+      }
+    }
+  }
+  // 埋め込み signin
+  .login_sec{
+    float:left;
+    width:300px;
+    .embed_sign_in{
+      width: 200px;
+      min-height: 200px;
+      margin:10px 20px 20px 20px; // 上下右左
+      border: 1px solid;
+      padding:10px
+    }
+  }
 }
 
 // sign_in/up
@@ -16,7 +55,7 @@
   padding:10px
 }
 
-//confirmation password email page
+// answer page without user_form
 .answer_page{
   width:500px;
   margin:auto;
@@ -26,9 +65,11 @@
 // header
 header{
   border-bottom:1px solid ;
-  margin:10px;
   position:fixed;
+  margin-bottom:20px;
   height: 50px;
+  width:100%;
+  background-color:#D3D3D3;
   ul{
     margin:10px;
   }
@@ -36,22 +77,13 @@ header{
 
 // footer
 footer{
+  margin-top:20px;
   border-top: 1px solid;
-  margin:10px;
+  height:50px;
+  width:100%;
   ul{
     margin:10px;
   }
-}
-
-
-// 埋め込み signin
-.embed_sign_in{
-  width: 200px;
-  min-height: 200px;
-  margin:20px;
-  float: left;
-  border: 1px solid;
-  padding:10px
 }
 
 // clearfix

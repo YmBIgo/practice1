@@ -1,0 +1,17 @@
+<div class="container">
+  <div class="in_main_page">
+    <%= link_to "#{@user.family_name} #{@user.first_name}さん", user_path(@user.id) %>
+    <div class="wear_col">
+      <a href="/wears/<%= @wear.id %>">
+        <div class="postring_image icon_image" style="background-image:url(<%= @wear.avatar.url(:medium) %>)"></div>
+      </a>
+      <p><%= "#{@wear.price}円/月" %></p>
+    </div>
+    <% if user_signed_in? %>
+      <% if @user.id==current_user.id %>
+        <br>
+        <%= link_to "服情報を編集する",edit_wear_path(@wear.id) %>
+      <% end %>
+    <% end %>
+  </div>
+</div>

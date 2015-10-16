@@ -3,6 +3,14 @@
     <%= render 'common/user_form' %>
   </section>
 </div>
-<div class="container">
+<% if user_signed_in? %>
+<!--
+  <% unless current_user.full_profile? %>
+    <h3>まずは基本情報を入力してください</h3>
+    <%= link_to "プロフィールを登録する", edit_user_path(current_user), { :class => "btn btn-primary withripple" } %>
+  <% end %>
+-->
+<% end %>
+<div class="in_main_page">
   <%= render 'common/main' %>
 </div>
