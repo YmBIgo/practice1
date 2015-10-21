@@ -2,9 +2,10 @@
 <% if user_signed_in? %>
   <!-- プロフィールを書く -->
   <div class="embed_sign_in">
-    <h4><strong>ようこそ！<%= current_user.first_name %>さん</strong></h4><br>
+    <h4><strong>ようこそ！<br><br><%= current_user.first_name %>さん</strong></h4>
+    <br>
     <%= link_to "ユーザー情報の編集",edit_user_path(current_user.id) %><br><br>
-    <%= link_to "パスワード、メールアドレスの変更",edit_user_registration_path, :class => "navbar-link"  %>
+    <%= link_to "設定の変更",edit_user_registration_path, :class => "navbar-link" %>
   </div>
 <% else %>
   <div class="embed_sign_in">

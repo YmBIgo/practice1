@@ -1,0 +1,17 @@
+<div class="container text-center">
+  <h2><%= @ward.name %></h2>
+  <br>
+  <table class="table">
+  <tr>
+  <% i=1 %>
+  <% @stations.each do |eki| %>
+    <td><%= link_to "#{eki.name}　", station_path(eki.id) %></td>
+    <% if i==5 %>
+      </tr><tr>
+      <% i=0 %>
+    <% end %>
+    <% i+=1 %>
+  <% end %>
+  </tr>
+  </table>
+</div>

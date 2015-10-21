@@ -35,6 +35,7 @@ gem 'bootstrap-material-design'
 gem 'omniauth'
 gem 'omniauth-twitter'
 gem 'omniauth-facebook'
+gem 'mechanize'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

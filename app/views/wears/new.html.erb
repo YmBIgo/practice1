@@ -11,6 +11,10 @@
       <%= f.file_field :avatar, :class => "form-control", placeholder: "画像アップロード" %>
     </div>
     <div class="form-group">
+      <%= f.label "ブランド" %>
+      <%= f.collection_select :brand_id , Brand.all, :id, :name, {}, {:class => "form-control"} %>
+    </div>
+    <div class="form-group">
       <%= f.label "値段(円)/1ヶ月" %>
       <%= f.number_field :price, :class => "form-control"%>
     </div>

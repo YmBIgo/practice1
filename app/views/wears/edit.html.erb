@@ -1,12 +1,18 @@
-<div class="answer_page">
+<div class="answer_page text-center">
   <% if @wear.user.id == current_user.id %>
     <%= form_for @wear do |f| %>
       <h2>登録情報</h2><br>
       <div class="form-group">
-        <%= f.text_field :price, :class => "form-control" %><br>
+        <%= f.label "価格(円/月)" %>
+        <%= f.text_field :price, :class => "form-control" %>
       </div>
       <div class="form-group">
-        <%= f.submit "送信", :class => "btn btn-primary withripple" %>
+        <%= f.label "ブランド" %>
+        <%= f.collection_select :brand_id , Brand.all, :id, :name, {}, {:class => "form-control"} %>
+      </div>
+      <br>
+      <div class="form-group">
+        <%= f.submit "送信", :class => "btn btn-primary withripple",:style => "width:200px" %>
       </div>
     <% end %>
   <% else %>

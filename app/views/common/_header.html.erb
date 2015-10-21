@@ -4,14 +4,24 @@
       <div class="row">
         <li class="col-xs-1 col-md-1"></li>
         <li>
-          <div class="col-xs-3 col-md-2">
+          <div class="col-xs-2 col-md-1">
             <%= link_to "トップ", root_path, :class => "navbar-link" %>
           </div>
         </li>
-        <li class="col-xs-4 col-md-2"></li>
+          <div class="col-xs-2 col-md-1"></div>
         <% if user_signed_in? %>
           <li>
+            <div class="col-xs3 col-md-1">
+              <%= link_to "服を探す", search_path %>
+            </div>
+          </li>
+          <li>
             <div class="col-xs-3 col-md-2">
+              <%= link_to "ユーザーページ", user_path(current_user.id), :class => "navbar-link" %>
+            </div>
+          </li>
+          <li>
+            <div class="col-xs-3 col-md-1">
               <%= link_to "服の登録", new_wear_path, :class => "navbar-link" %>
             </div>
           </li>

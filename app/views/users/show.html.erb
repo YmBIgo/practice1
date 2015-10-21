@@ -1,13 +1,12 @@
-<div class="container">
-  <h3>Name</h3>
-  <p><%= "#{@user.family_name} #{@user.first_name}　" %>
+<div class="in_main_page container text-center">
+  <h3><%=link_to "#{@user.family_name} #{@user.first_name}" ,user_path(@user.id) %></h3>
+  <p><%= link_to "#{@ward.name}", ward_path(@ward.id) %>　<%= link_to "#{@station.name}駅", station_path(@station.id) %></p>
+  <p>
+  </p>
+  <%= render 'common/main', per_row: 5 %>
   <% if user_signed_in? %>
     <% if @user.id == current_user.id %>
       <%= link_to "ユーザー情報を編集",edit_user_path(current_user.id), :class => "btn btn-primary withripple" %>
     <% end %>
   <% end %>
-  </p>
-  <div class="in_main_page">
-    <%= render 'common/main' %>
-  </div>
 </div>

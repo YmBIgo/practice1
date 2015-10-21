@@ -3,9 +3,18 @@ Rails.application.routes.draw do
   devise_for :users
   root to: "top#index"
   match '/about', to: 'static_pages#about',        via: 'get'
-  match '/help' , to: 'static_pages#help',          via: 'get'
-  resources :users, only: [:show, :edit, :update]
-  resources :wears, only: [:new ,:create, :show, :edit, :update]
+  match '/help' , to: 'static_pages#help',         via: 'get'
+  match '/search',to: 'static_pages#search',       via: 'get'
+  resources :users do
+    collection do
+      get :stations_select
+    end
+  end
+  resources :users,    only: [:show, :edit, :update, :stations_select]
+  resources :wears,    only: [:new ,:create, :show, :edit, :update]
+  resources :wards,    only: [:show]
+  resources :stations, only: [:show]
+  resources :brands,   only: [:show]
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

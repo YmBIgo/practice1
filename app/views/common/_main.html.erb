@@ -1,10 +1,16 @@
-<% for num in 1..4 do %>
+<% per_page = 20/per_row %>
+<% 1.upto(per_page) do |num| %>
   <ul class="list-inline" >
-    <% @wear_all.page(num).per(5).each do |w| %>
+    <% @wear_all.page(num).per(per_row).each do |w| %>
       <li class="wear_col">
         <a href="/wears/<%= w.id %>">
           <div class="postring_image icon_image" style="background-image:url(<%= w.avatar.url(:medium) %>)"></div>
         </a>
+        <br>
+        <%= link_to "#{w.user.family_name} #{w.user.first_name}さん", user_path(w.user.id) %><br>
+        <%= link_to "#{w.brand.name}", brand_path(w.brand_id) %>
+        <br>
+        <%= link_to "#{w.user.station.name}駅", station_path(w.user.station.id) %>
         <p><%= w.price %>円/月</p>
       </li>
     <% end %>

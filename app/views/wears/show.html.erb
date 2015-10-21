@@ -1,17 +1,22 @@
-<div class="container">
-  <div class="in_main_page">
-    <%= link_to "#{@user.family_name} #{@user.first_name}さん", user_path(@user.id) %>
-    <div class="wear_col">
+<div class="in_main_page container text-center">
+    <h3><%= link_to "#{@user.family_name} #{@user.first_name}さん", user_path(@user.id) %></h3>
+    <br>
+    <div class="wear_col" style="margin:0 auto;">
       <a href="/wears/<%= @wear.id %>">
         <div class="postring_image icon_image" style="background-image:url(<%= @wear.avatar.url(:medium) %>)"></div>
       </a>
-      <p><%= "#{@wear.price}円/月" %></p>
+      <br>
+      <%= link_to "#{@wear.user.family_name} #{@wear.user.first_name}さん", user_path(@wear.user.id) %>
+      <br>
+      <%= link_to "#{@wear.brand.name}", brand_path(@wear.brand_id) %>
+      <br>
+      <%= link_to "#{@wear.user.station.name}駅", station_path(@wear.user.station.id) %>
+      <p><%= @wear.price %>円/月</p>
     </div>
     <% if user_signed_in? %>
       <% if @user.id==current_user.id %>
         <br>
-        <%= link_to "服情報を編集する",edit_wear_path(@wear.id) %>
+        <%= link_to "服情報を編集する",edit_wear_path(@wear.id),:class => "btn btn-primary withripple" %>
       <% end %>
     <% end %>
-  </div>
 </div>

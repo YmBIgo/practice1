@@ -11,7 +11,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151014135001) do
+ActiveRecord::Schema.define(version: 20151021032000) do
+
+  create_table "brands", force: :cascade do |t|
+    t.string   "name",       limit: 255
+    t.string   "alphabet",   limit: 255
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
+
+  create_table "stations", force: :cascade do |t|
+    t.string   "name",       limit: 255
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+    t.integer  "ward_id",    limit: 4
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  limit: 255, default: "", null: false
@@ -32,11 +46,22 @@ ActiveRecord::Schema.define(version: 20151014135001) do
     t.string   "unconfirmed_email",      limit: 255
     t.string   "family_name",            limit: 255
     t.string   "first_name",             limit: 255
+    t.integer  "ward_id",                limit: 4
+    t.integer  "station_id",             limit: 4
+    t.string   "provider",               limit: 255, default: "", null: false
+    t.string   "uid",                    limit: 255, default: "", null: false
+    t.string   "name",                   limit: 255
   end
 
   add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true, using: :btree
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
+
+  create_table "wards", force: :cascade do |t|
+    t.string   "name",       limit: 255
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
 
   create_table "wears", force: :cascade do |t|
     t.datetime "created_at",                                      null: false
@@ -48,6 +73,7 @@ ActiveRecord::Schema.define(version: 20151014135001) do
     t.integer  "avatar_file_size",    limit: 4
     t.datetime "avatar_updated_at"
     t.integer  "user_id",             limit: 4
+    t.integer  "brand_id",            limit: 4
   end
 
 end

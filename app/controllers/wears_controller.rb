@@ -27,7 +27,7 @@ class WearsController < ApplicationController
   private
 
   def create_params
-    params.require(:wear).permit(:price,:avatar,:user_id).merge(user_id: current_user.id)
+    params.require(:wear).permit(:price,:avatar, :brand_id,:user_id).merge(user_id: current_user.id)
   end
 
   def correct_user
@@ -36,7 +36,7 @@ class WearsController < ApplicationController
   end
 
   def update_params
-    params.require(:wear).permit(:price)
+    params.require(:wear).permit(:price,:brand_id)
   end
 
 end
